@@ -31,9 +31,25 @@ The setup includes:
 
 The screenshots in the [results](results) folder show that the deployment was applied successfully and the application is working.
 
-- [Argo CD UI](results/argocd-ui.png) shows the application in a synced state and the resource tree created by Argo CD.
-- [Created cluster resources](results/created-cluster-ressources.png) shows the namespace objects, pods, deployment, services, and ingress running successfully.
-- [Final nginx result](results/final-result-nginx-ui.png) shows the nginx welcome page opened through the exposed service on port 30080.
+### Screenshot Overview
+
+#### Argo CD UI
+
+![Argo CD UI](results/argocd-ui.png)
+
+This screenshot shows the application synced in Argo CD and the resource tree created from the manifests.
+
+#### Created Cluster Resources
+
+![Created cluster resources](results/created-cluster-ressources.png)
+
+This screenshot shows the namespace objects, pods, deployment, services, and ingress running successfully.
+
+#### Final Nginx Result
+
+![Final nginx result](results/final-result-nginx-ui.png)
+
+This screenshot shows the nginx welcome page opened through the exposed service on port 30080.
 
 These screenshots confirm that the GitOps flow is working end to end: repository -> Argo CD sync -> Kubernetes resources -> reachable nginx page.
 
