@@ -1,21 +1,21 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: app
+  name: web-app-deployment
   labels:
-    app: app
+    app.kubernetes.io/name: web-app
 spec:
   replicas: 3
   selector:
     matchLabels:
-      app: app
+      app.kubernetes.io/name: web-app
   template:
     metadata:
       labels:
-        app: app
+        app.kubernetes.io/name: web-app
     spec:
       containers:
-      - name: app
+      - name: web-app
         image: nginx:latest
         ports:
         - containerPort: 80

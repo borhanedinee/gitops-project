@@ -8,24 +8,24 @@ The goal of this repo is to deploy a simple nginx application and expose it thro
 
 The setup includes:
 
-- A Deployment that runs 3 nginx pods
-- A ClusterIP Service for internal access
-- A NodePort Service for direct browser access during testing
-- An Ingress resource without a fixed host name
+- A Deployment named `web-app-deployment` that runs 3 nginx pods
+- A ClusterIP Service named `web-app-service` for internal access
+- A NodePort Service named `web-app-nodeport` for direct browser access during testing
+- An Ingress resource named `web-app-ingress` without a fixed host name
 
 ## Manifests
 
-- [manifests/deployment.yaml](manifests/deployment.yaml) - Runs the nginx workload
-- [manifests/service.yaml](manifests/service.yaml) - Exposes the app inside the cluster on port 80
-- [manifests/ingress-service.yaml](manifests/ingress-service.yaml) - Exposes the app through a NodePort on port 30080
-- [manifests/ingress.yaml](manifests/ingress.yaml) - Ingress routing without requiring a domain name
+- [manifests/deployment.yaml](manifests/deployment.yaml) - Runs the nginx workload as `web-app-deployment`
+- [manifests/service.yaml](manifests/service.yaml) - Exposes the app inside the cluster through `web-app-service` on port 80
+- [manifests/ingress-service.yaml](manifests/ingress-service.yaml) - Exposes the app through `web-app-nodeport` on port 30080
+- [manifests/ingress.yaml](manifests/ingress.yaml) - Ingress routing through `web-app-ingress` without requiring a domain name
 
 ## How It Works
 
 1. Argo CD watches the repository and syncs the manifests.
 2. The Deployment creates the application pods.
 3. The Services expose the pods inside and outside the cluster.
-4. The Ingress resource routes traffic to the app without needing a specific host value.
+4. The Ingress resource routes traffic to the web app without needing a specific host value.
 
 ## Validation Result
 
